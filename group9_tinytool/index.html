@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>LOC Based Metrics</title>
+  <!-- icon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Start your project here-->
+
+  <div class="stylish-color-dark card">
+    <div class="card-body">
+
+      <!-- Header -->
+      <h3 class="text-center font-weight-bold text-uppercase py-4 white-text">LOC Based Metrics</h3>
+      <button type="button" class="export btn btn btn-info float-right">Export</button>
+      <button type="button" class="info btn btn btn-info float-right" onclick="window.open('info.html','_blank')">Info</button>
+      <button type="button" class="add btn btn btn-success float-right">Add</button>
+      <!-- Header -->
+
+      <!-- Editable table -->
+      <div id="table" class="table-editable">
+      <!--<span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus-square fa-2x" aria-hidden="true"></i></a></span>-->
+        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"></a></span>
+        <table id="table-body" class="table table-bordered table-responsive-md table-striped text-center">
+          <thead>
+          <tr>
+            <th class="text-center white-text font-weight-bold">Function</th>
+            <th class="text-center white-text font-weight-bold">Estimated Lines of Code</th>
+            <th class="text-center white-text font-weight-bold">Remove</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="pt-3-half white-text" contenteditable="true">User interface and control facilities (UICF)</td>
+            <td class="pt-3-half white-text" contenteditable="true">2000</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                                                 class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="pt-3-half white-text" contenteditable="true">Data models & relationships (DMR)</td>
+            <td class="pt-3-half white-text" contenteditable="true">1500</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                                                 class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="pt-3-half white-text" contenteditable="true">Database management (DBM)</td>
+            <td class="pt-3-half white-text" contenteditable="true">1000</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                                                 class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+          <tr class="hide">
+            <td class="pt-3-half white-text" contenteditable="true">Authentication system (AS)</td>
+            <td class="pt-3-half white-text" contenteditable="true">500</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                                                 class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <!-- Editable table -->
+
+        <!-- Group 1 -->
+        <div style="height: 7rem" class="container">
+          <div class="row">
+            <div class="col">
+              <p class="white-text font-weight-bold font-weight-bold">Cost Per Line of Code</p>
+              <h3 id="result2" class="white-text"></h3>
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+              <p class="white-text font-weight-bold">Total Lines of Code</p>
+              <h3 id="result1" class="white-text"></h3>
+            </div>
+          </div>
+        </div>
+        <!-- Group 1 -->
+
+        <!-- Group 2 -->
+        <div style="height: 7rem" class="container">
+          <div class="row">
+            <div class="col">
+              <p class="white-text font-weight-bold">Average Productivity in LOC Per Person-Month</p>
+              <h3 id="result4" class="white-text"></h3>
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+              <label for="person-months" class="white-text font-weight-bold">Total Person-Months</label>
+              <input class="form-control" id="person-months" aria-describedby="Total number of person-months" placeholder="16">
+            </div>
+          </div>
+        </div>
+        <!-- Group 2 -->
+
+        <!-- Group 3 -->
+        <div style="height: 7rem" class="container">
+          <div class="row">
+            <div class="col">
+              <p class="white-text font-weight-bold">Total Project Cost</p>
+              <h3 id="result3" class="white-text"></h3>
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+              <label for="salary" class="white-text font-weight-bold">Cost Per Person-Month</label>
+              <input class="form-control" id="salary" aria-describedby="Total number of person-months" placeholder="8000">
+            </div>
+          </div>
+        </div>
+        <!-- Group 3 -->
+
+        <!-- Group 4 -->
+        <div style="height: 5rem" class="container">
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+              <button type="button" class="calculate btn btn-primary float-right">Calculate</button>
+            </div>
+          </div>
+        </div>
+        <!-- Group 4 -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modals -->
+  <div class="modal fade" id="inputModal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Input Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Please provide proper inputs for total person-months and cost per person-month.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="zeroOrLessModal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Input Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Please select a value for total person-months/cost per person month that is greater than zero.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="badLOCEstimateModal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Input Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Please select a value for estimated lines of code that is greater than zero.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exportModal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Export Table to JSON</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <pre id="export" class=""></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modals -->
+
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
